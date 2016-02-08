@@ -5,3 +5,13 @@
  * Time: 12:42 PM
  * Content:
  */
+
+var test = 3;
+
+function add ( x ){
+  return x++;
+}
+
+add( test );
+
+console.log("test");
