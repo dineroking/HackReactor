@@ -22,6 +22,7 @@ $('h1').css('color', 'blue');
 $('body').css('background', 'red');
 $('#everything').css('font-size', 'larger');
 */
+/*
 var color = prompt('Please enter a color: ').toLowerCase();
 var theme = ['red', 'green', 'blue', 'yellow'];
 
@@ -29,7 +30,7 @@ while( color !== 'stop' ){
   var found = false;
   for(var i = 0; i < theme.length; i++){
     if( theme[i] === color ) {
-      $('body').css({'background' : 'light' + color, 'color' : '' + color, 'border' : '5px solid dark' + color});
+      $('body').css({'background' : 'light' + color, 'color' : '' + color, 'border' : '5px solid dark' + color} ).fadeOut(3000 ).fadeIn(3000);
       found = true;
       break;
     }
@@ -38,3 +39,21 @@ while( color !== 'stop' ){
     break;
   var color = prompt('Please enter a color: ').toLowerCase();
 }
+*/
+
+//$('body' ).css('height', '800px');
+$('div#thing').slideDown(3000, function(){
+  $('#message').slideUp(3000, function(){
+    $(this ).slideDown(3000);
+  });
+});
+
+$('#thing').click(function(){
+  $('#message').slideToggle(2000);
+});
+
+var new_div = $('<div>This is a new div.</div>');
+
+new_div.css('color', 'purple').attr('class', 'important').text('This text replaces the text inside');
+
+$('body').append(new_div);
