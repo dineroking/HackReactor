@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+  <html>
   <head>
     <meta charset="UTF-8">
     <script src="test.js"></script>
@@ -13,11 +13,41 @@
       <p>This is a paragraph. This is another paragraph</p>
     </div>
     <script>
-      /*alert("JavaScript is just lovely.");
-      var name = prompt("By the way. What is your name?");
-      alert("Hello, " + name);*/
+      /*alert("javascript is easy, or not");
+      var name = prompt("hi there what is your name?");
+      alert("Hello, " + name );*/
+      console.log("secret goodness");
+      var hour, minute, midnight;
+      hour = 19 * 3600;
+      minute = 53 * 60;
+      midnight = 3600 * 24;
+      console.log(hour + " : " + minute);
+      console.log(midnight - (hour + minute));
+      minute = 56 * 60;
+      console.log(midnight - (hour + minute));
 
-      document.querySelector('h1, p').textContent = "This was modified by JavaScript";
+      function Info(name, age, birthday, hometown, occupation, favoriteFood, bestFriend ){
+        this.name = name;
+        this.age = age;
+        this.birthday = birthday;
+        this.hometown = hometown;
+        this.occupation = occupation;
+        this.favoriteFood = favoriteFood;
+        this.bestFriend = bestFriend;
+      }
+
+      var ronny = new Info("Ronny", 33, "August 82", "Houston", "Pilot", "Steak", "Luis");
+      var neekon = new Info("Neekon", 24, "August 91", "Saratoga", "Student", "Steak", "John");
+
+      var ronnyInfo = "Hello my name is " + ronny.name + ". I'm " + ronny.age + " and I was born in " + ronny.birthday + "." +
+          " I live in " + ronny.hometown + " and I work as a " + ronny.occupation + ". I always have to have " + ronny.favoriteFood +
+          " and my best friend is " + ronny.bestFriend + ".";
+
+      var neekonInfo = "Hello my name is " + neekon.name +"." + "Ronny and I where both born on the same day, " + neekon.birthday +"."
+      + "I was born in "+ neekon.hometown +"." +"I am a "+neekon.occupation +". ";
+
+      console.log(ronnyInfo);
+      console.log(neekonInfo);
     </script>
   </body>
 </html>
