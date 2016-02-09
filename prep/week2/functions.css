@@ -1,0 +1,16 @@
+.noun{
+  color : red;
+}
+
+.adjective{
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.verb{
+  color : green;
+}
+
+.adverb{
+  font-style: italic;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="functions.css">
+    <script src="functions.js" defer></script>
+    <title>Functions</title>
+  </head>
+  <body>
+
+    <script src="../../js/jquery-2.2.0.min.js">
+
+    </script>
+    <script>
+      myFunction = function(){
+        console.log("I'm inside functions.html");
+        console.log("The time is: " + new Date());
+      };
+      myFunction();
+      myFunction();
+      var sentences = ['this is the first sentence', 'this is the second sentence', 'this is the third sentence'];
+      var get_sentence = function(){
+        var random = Math.floor(Math.random() * 3);
+        var p = $("<p>" + sentences[random] + "</p>");
+        $('body').append(p);
+      };
+      var i = 0;
+      var max = 10;
+      while( i < max ){
+        get_sentence();
+        i++;
+      }
+
+    </script>
+  </body>
+</html>
