@@ -5,3 +5,7 @@
  * Time: 6:00 PM
  * Content:
  */
+
+var name = "El FEO";
+
+alert(name);
