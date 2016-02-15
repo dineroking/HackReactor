@@ -23,3 +23,6 @@ for(var prop in dream_car){
 html += "</ul>";
 
 $('#result').append(html);
+var name = "El FEO";
+
+alert(name);
