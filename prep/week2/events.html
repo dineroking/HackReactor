@@ -2,9 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="events.css">
+    <title>Events</title>
   </head>
   <body>
-    
+
+    <div id="recipe">
+    </div>
+    <div id="bucket_list">
+    </div>
+    <!--<div id="target">
+
+    </div>
+    <div>
+      show me the money!
+    </div>
+    <div>
+      show me the Oprah!
+    </div>
+    <div>
+      show me the Opera!
+    </div>-->
+    <script src="../../js/jquery-2.2.0.min.js"></script>
+    <script src="events.js"></script>
+
+
+    <!--<script>
+      var button = $('<button>Click Me</button>');
+      $('#target').append(button);
+      var beeper = function(){
+        $('#target').append('<p>beep</p>');
+      };
+      var bodyColor = function(){
+        var randomColor = '#' + Math.random().toString(16).slice(2, 8);
+        $('body').css('background', randomColor);
+      };
+
+      document.querySelector('button').addEventListener('click', beeper);
+      $('button').bind('click', bodyColor);
+
+      $('div + div').bind('click', function() {
+        $(this).append(' MONEY!');
+      });
+
+      $('div + div + div').bind('click', function() {
+        $(this).append(' OPRAH!');
+      });
+
+      $('div + div + div + div').bind('click', function() {
+        $(this).append(' OPERA!');
+      });
+
+    </script>-->
+
+
   </body>
 </html>
