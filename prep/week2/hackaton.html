@@ -5,16 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Web Store</title>
-    <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet"><!--TODO: please change bootstrap link to the one you had-->
+    <link href="hackaton.css" rel="stylesheet">
   </head>
   <body>
-    <div class="container-fluid">
-      <header>
+    <div id="wrapper">
+    <header>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Web Store</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul id="mainNav" class="nav navbar-nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div id="mainSection">
+      <div id="products">
+        <!--<ul>&lt;!&ndash;TODO: this list items have to be done dynamically for each product&ndash;&gt;
+          <li>PRODUCT1
+            <ul>
+              <li>ADD</li>
+              <li>INFO</li>
+            </ul>
+          </li>
+          <li>PRODUCT2
+            <ul>
+              <li>ADD</li>
+              <li>INFO</li>
+            </ul>
+          </li>
+          <li>PRODUCT3
+            <ul>
+              <li>ADD</li>
+              <li>INFO</li>
+            </ul>
+          </li>
+          <li>AND SO ON
+            <ul>
+              <li>ADD</li>
+              <li>INFO</li>
+            </ul>
+          </li>
+        </ul>-->
+      </div>
+      <div id="productNav">
 
-      </header>
+      </div>
+
+    </div>
+
+    <footer>
+
+    </footer>
     </div>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script><!--TODO: please change bootstrap link to the one you had-->
     <script src="hackaton.js"></script>
   </body>
 </html>

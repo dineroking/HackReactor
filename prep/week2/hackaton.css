@@ -5,3 +5,72 @@
 * Time: 6:16 PM
 * Content: 
 */
+html, body {
+  margin:  0;
+  padding: 0;
+  height:  100%;
+}
+
+#wrapper {
+  position:   relative;
+  min-height: 100%;
+}
+
+.navbar-nav li:hover {
+  background-color: #080808;
+}
+
+#mainSection {
+  display: none;
+  position:         relative;
+  margin-top:       -20px;
+  height:           0;
+  background-color: #e9e9ed;
+}
+
+#productNav {
+  display:          none;
+  position:         absolute;
+  bottom:           0;
+  left:             0;
+  width:            100%;
+  height:           0;
+  background-color: #c8c8c8;
+}
+
+footer {
+  height:           40px;
+  width:            100%;
+  background-color: #080808;
+  position:         absolute;
+  bottom:           0;
+  left:             0;
+}
+
+#products > ul > li {
+  position:         relative;
+  margin:           20px;
+  display:          inline-block;
+  width:            200px;
+  height:           250px;
+  background-color: lightblue;
+}
+
+#products ul ul {
+  position: absolute;
+  bottom:   -40px;
+  left:     -9px;
+}
+
+#products ul ul li {
+  display:               inline;
+  margin:                10px;
+  padding:               10px;
+  width:                 70px;
+  height:                60px;
+  list-style:            none;
+  background-color:      lightblue;
+  -webkit-border-radius: 5px;
+  -moz-border-radius:    5px;
+  border-radius:         5px;
+}
