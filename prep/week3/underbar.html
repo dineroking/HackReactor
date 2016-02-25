@@ -76,10 +76,16 @@
       // documentation provided at http://underscorejs.org/ for more information
       _.filter = function( collection, test ) {
         var arr = [];
-        _.each( collection, function( item ){
+        /*_.each( collection, function( item ){
           if( test( item ))
             arr.push( item );
-        });
+        });*/
+
+        _.reduce( collection, function( sum, item ){
+          if(test( item )){
+            arr = arr.concat( item );
+          }
+        }, []);
         /*var len = collection.length;
         for( var i = 0; i < len; i++){
           if(test(collection[i]))
@@ -114,10 +120,16 @@
         // map() is a useful primitive iteration function that works a lot
         // like each(), but in addition to running the operation on all
         // the members, it also maintains and returns an array of resultant values.
+
         var arr = [];
-        _.each(collection, function( item ){
+        /*_.each(collection, function( item ){
           arr.push(iterator( item ));
-        });
+        });*/
+
+        _.reduce( collection, function( sum, item ){
+          console.log( arr[item] );
+          arr = arr.concat(iterator(item));
+        }, []);//this is needed otherwise 'item' will start at the second element, why doesnt
 
         //var len = collection.length;
         /*if(Array.isArray(collection)){
@@ -130,6 +142,7 @@
             arr.push( collection[prop], prop, collection);
           }
         }*/
+
         return arr;
       };
 
@@ -172,17 +185,25 @@
       //   }) // should be 5, regardless of the iterator function passed in
       //          No accumulator is given so the first element is used.
       _.reduce = function(collection, iterator, accumulator) {
-        var result,
-          i,
-          len = collection.length;
-        if(accumulator !== undefined){
-          result = accumulator;
-          i = 0;
-        }else{
-          result = collection[0];
-          i = 1;
+
+        if( accumulator === undefined ) {
+          accumulator = collection.shift();
         }
-        if(Array.isArray( collection )){
+        _.each( collection, function( item ){
+          accumulator = iterator( accumulator, item );
+        } );
+
+        /*var result,
+         i,
+         len = collection.length;
+         if(accumulator === undefined){
+         result = accumulator;
+         i = 0;
+         }else{
+         result = collection[0];
+         i = 1;
+         }*/
+        /*if(Array.isArray( collection )){
           for( ; i < len; i++ ){
             result = iterator(result, collection[ i ]);
           }
@@ -190,8 +211,8 @@
           for( var prop in collection ){
             result = iterator( result, collection[prop] );
           }
-        }
-        return result;
+         }*/
+        return accumulator;
       };
 
       // Determine if the array or object contains a given value (using `===`).
