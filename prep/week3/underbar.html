@@ -76,11 +76,15 @@
       // documentation provided at http://underscorejs.org/ for more information
       _.filter = function( collection, test ) {
         var arr = [];
-        var len = collection.length;
+        _.each( collection, function( item ){
+          if( test( item ))
+            arr.push( item );
+        });
+        /*var len = collection.length;
         for( var i = 0; i < len; i++){
           if(test(collection[i]))
             arr.push(collection[i]);
-        }
+        }*/
         return arr;
       };
 
@@ -111,8 +115,13 @@
         // like each(), but in addition to running the operation on all
         // the members, it also maintains and returns an array of resultant values.
         var arr = [];
-        var len = collection.length;
-        if(Array.isArray(collection)){
+        _.each(collection, function( item ){
+          arr.push(iterator( item ));
+        });
+
+        //var len = collection.length;
+        /*if(Array.isArray(collection)){
+
           for( var i = 0; i < len; i++){
             arr.push(iterator(collection[i], i, collection));
           }
@@ -120,7 +129,7 @@
           for(var prop in collection){
             arr.push( collection[prop], prop, collection);
           }
-        }
+        }*/
         return arr;
       };
 
@@ -176,14 +185,14 @@
           }
           return item === target
         }, false)
-      }
+      };
 
 
       // Determine whether all of the elements match a truth test.
       _.every = function(collection, iterator) {
         // TIP: Try re-using reduce() here.
 
-      }
+      };
 
       // Determine whether any of the elements pass a truth test. If no iterator is
       // provided, provide a default one
