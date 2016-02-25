@@ -65,7 +65,7 @@
 
         _.each(array, function(item, index) {
           if(item === target && result === -1) {
-            result = index;  //TODO: why not break out of it?
+            result = index;
           }
         });
 
@@ -162,8 +162,27 @@
       //     return total + number * number
       //   }) // should be 5, regardless of the iterator function passed in
       //          No accumulator is given so the first element is used.
-      _.reduce = function(collection, iterator, accumulator) { //TODO: this is the next exercise
-
+      _.reduce = function(collection, iterator, accumulator) {
+        var result,
+          i,
+          len = collection.length;
+        if(accumulator !== undefined){
+          result = accumulator;
+          i = 0;
+        }else{
+          result = collection[0];
+          i = 1;
+        }
+        if(Array.isArray( collection )){
+          for( ; i < len; i++ ){
+            result = iterator(result, collection[ i ]);
+          }
+        }else{
+          for( var prop in collection ){
+            result = iterator( result, collection[prop] );
+          }
+        }
+        return result;
       };
 
       // Determine if the array or object contains a given value (using `===`).
@@ -176,21 +195,25 @@
           }
           return item === target
         }, false)
-      }
+      };
 
 
       // Determine whether all of the elements match a truth test.
       _.every = function(collection, iterator) {
         // TIP: Try re-using reduce() here.
-
-      }
+        var arr = [];
+        return _.reduce( collection, function( arg ){
+           arr.push(iterator(arg) === true);
+          return arr;
+        });
+      };
 
       // Determine whether any of the elements pass a truth test. If no iterator is
       // provided, provide a default one
       _.some = function(collection, iterator) {
         // TIP: There's a very clever way to re-use every() here.
 
-      }
+      };
 
       // Extend a given object with all the properties of the passed in
       // object(s).
@@ -205,7 +228,7 @@
       //   }) // obj1 now contains key1, key2, key3 and bla
       _.extend = function(obj) {
 
-      }
+      };
 
 
       /////////////////////
@@ -570,93 +593,93 @@
           var total = _.reduce([1, 2, 3], add, 0);
 
           expect_equal(total, 6)
-        })
+        });
 
         it('should use the first element as an accumulator when none is given', function() {
           var add = function(tally, item) {
             return tally + item
-          }
-          var total = _.reduce([1, 2, 3], add)
+          };
+          var total = _.reduce([1, 2, 3], add);
 
           expect_equal(total, 6)
-        })
+        });
 
         it('should invoke the iterator on the first element when given an accumulator', function() {
           var sumSquares = function(tally, item) {
             return tally + item * item
-          }
-          var total = _.reduce([2, 3], sumSquares, 0)
+          };
+          var total = _.reduce([2, 3], sumSquares, 0);
 
           expect_equal(total, 13)
-        })
+        });
 
         it('should not invoke the iterator on the first element when using it as an accumulator', function() {
           var sumSquares = function(tally, item) {
             return tally + item * item
-          }
-          var total = _.reduce([2, 3], sumSquares)
+          };
+          var total = _.reduce([2, 3], sumSquares);
 
           expect_equal(total, 11)
         })
 
-      })
+      });
 
-      xdescribe('contains', function() {
+      describe('contains', function() {
         it('should return false if a collection does not contain a user-specified value', function() {
           expect_equal(_.contains([4, 5, 6], 2), false)
-        })
+        });
 
         it('should return true if a collection contains a user-specified value', function() {
           expect_equal(_.contains([4, 5, 6], 5), true)
-        })
+        });
 
         it('should work on objects', function() {
           expect_equal(_.contains({a: 4, b: 5, c: 6}, 5), true)
         })
-      })
+      });
 
-      xdescribe('every', function() {
+      describe('every', function() {
         var isEven = function(num) {
           return num % 2 === 0
-        }
+        };
 
         it('passes by default for an empty collection', function() {
           expect_equal(_.every([], _.identity), true)
-        })
+        });
 
         it('passes for a collection of all-truthy results', function() {
           expect_equal(_.every([true, {}, 1], _.identity), true)
-        })
+        });
 
         it('fails for a collection of all-falsy results', function() {
           expect_equal(_.every([null, 0, undefined], _.identity), false)
-        })
+        });
 
         it('fails for a collection containing mixed falsy and truthy results', function() {
-          expect_equal(_.every([true, false, 1], _.identity), false)
+          expect_equal(_.every([true, false, 1], _.identity), false);
           expect_equal(_.every([1, undefined, true], _.identity), false)
-        })
+        });
 
         it('should work when provided a collection containing undefined values', function() {
           expect_equal(_.every([undefined, undefined, undefined], _.identity), false)
-        })
+        });
 
         it('should cast the result to a boolean', function() {
-          expect_equal(_.every([1], _.identity), true)
+          expect_equal(_.every([1], _.identity), true);
           expect_equal(_.every([0], _.identity), false)
-        })
+        });
 
         it('should handle callbacks that manipulate the input', function() {
-          expect_equal(_.every([0, 10, 28], isEven), true)
+          expect_equal(_.every([0, 10, 28], isEven), true);
           expect_equal(_.every([0, 11, 28], isEven), false)
-        })
+        });
 
         it('should work when no callback is provided', function() {
-          expect_equal(_.every([true, true, true]), true)
-          expect_equal(_.every([true, true, false]), false)
+          expect_equal(_.every([true, true, true]), true);
+          expect_equal(_.every([true, true, false]), false);
           expect_equal(_.every([false, false, false]), false)
         })
-      })
+      });
 
       xdescribe('some', function() {
         var isEven = function(number) {
