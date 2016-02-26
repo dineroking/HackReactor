@@ -209,6 +209,14 @@
          }else{
          result = collection[0];
          i = 1;
+
+
+         return _.reduce( collection, function( sum, item ){
+         console.log(sum);
+         return sum.concat(iterator(item));
+         }, []);
+
+
          }*/
         /*if(Array.isArray( collection )){
           for( ; i < len; i++ ){
