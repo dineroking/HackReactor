@@ -76,16 +76,20 @@
       // documentation provided at http://underscorejs.org/ for more information
       _.filter = function( collection, test ) {
         var arr = [];
-        /*_.each( collection, function( item ){
-          if( test( item ))
-            arr.push( item );
-        });*/
 
         _.reduce( collection, function( sum, item ){
           if(test( item )){
             arr = arr.concat( item );
           }
         }, []);
+
+
+        /*_.each( collection, function( item ){
+         if( test( item ))
+         arr.push( item );
+         });*/
+
+
         /*var len = collection.length;
         for( var i = 0; i < len; i++){
           if(test(collection[i]))
@@ -122,14 +126,17 @@
         // the members, it also maintains and returns an array of resultant values.
 
         var arr = [];
-        /*_.each(collection, function( item ){
-          arr.push(iterator( item ));
-        });*/
+
 
         _.reduce( collection, function( sum, item ){
-          console.log( arr[item] );
           arr = arr.concat(iterator(item));
-        }, []);//this is needed otherwise 'item' will start at the second element, why doesnt
+        }, []);//this third argument is needed otherwise 'item' will start at the second element
+
+
+        /*_.each(collection, function( item ){
+         arr.push(iterator( item ));
+         });*/
+
 
         //var len = collection.length;
         /*if(Array.isArray(collection)){
