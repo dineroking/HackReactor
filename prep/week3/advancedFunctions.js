@@ -47,7 +47,7 @@ answer_logger( myName, name );
 html = "";//resets html so that the header doesnt appear again
 //this is another way the function can be called and the same purpose is served
 var answer_logger1 = function( func ) {
-  html += '<p>' + func() + '</p>';
+  html += '<p>' + func + '</p>';
   $( '#answer' ).append( html );
 };
 
@@ -66,12 +66,18 @@ html = "";//resets html
 //this function takes an array of functions as a parameter
 var answer_collector = function( functionsArray ) {
   var resultsArray = [];
-  var len = functionsArray.length;
+
+  functionsArray.forEach( function( func ){
+    resultsArray.push( func() );
+  });
+
+  /*var len = functionsArray.length;
 
   //runs through each item in the array of functions and calls each function which pushes its return value to the resultsArray
   for( var i = 0; i < len; i++ ) {
     resultsArray.push( functionsArray[ i ]() );
-  }
+  }*/
+
   return resultsArray;
 };
 

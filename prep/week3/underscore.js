@@ -45,4 +45,23 @@ var products = [{
 }];
 
 
-// _.first()
+//first: Pass _.first() the array of products and display the returned object in a "featured" section of your site.
+
+var returnedObj = _.first( products );
+console.log( returnedObj );
+
+var html = '';
+_.each( returnedObj, function( value, prop ){
+  html += '<p>' + prop + ' : ' + value + '</p>';
+} );
+$('#featured').append( html );
+
+
+//last: Pass _.last() the array of products and display the returned object in a "clearance" section of your site.
+
+html = '';
+_.each( _.last( products ), function( value, prop ){
+  html += '<p>' + prop + ' : ' + value + '</p>';
+});
+
+$('#clearance').append( html );
