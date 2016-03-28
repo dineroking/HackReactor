@@ -81,14 +81,20 @@
       _.filter = function(collection, test) {
 
         //solution with _.each
-        var arr = [];
+        /*var arr = [];
         _.each(collection, function( item, index ){
           if( test( item ) ){
             arr.push( item );
           }
         });
-        return arr;
-      }
+        return arr;*/
+
+        //solution with _.reduce
+
+        return _.reduce( collection, function( arr, curr ){
+          return ( test( curr ) ) ? arr.concat( curr ) : arr;
+        }, [] );
+      };
 
       // Return all elements of an array that don't pass a truth test.
       _.reject = function(collection, test) {
