@@ -48,7 +48,6 @@ var products = [{
 //first: Pass _.first() the array of products and display the returned object in a "featured" section of your site.
 
 var returnedObj = _.first( products );
-console.log( returnedObj );
 
 var html = '';
 _.each( returnedObj, function( value, prop ){
@@ -65,3 +64,99 @@ _.each( _.last( products ), function( value, prop ){
 });
 
 $('#clearance').append( html );
+
+
+//filter: Use _.filter() to display only products that belong to the "books" category.
+
+var books = _.filter( products, function( obj ){
+  return obj.category === 'books';
+});
+
+html = '';
+_.each( books, function( val, index ){
+  html += '<ul>';
+  _.each( val , function( value, prop ){
+    html += '<li>' + prop + ' - ' + value + '</li>';
+  } );
+  html += '</ul>';
+});
+
+$('#books').append( html );
+
+
+//reject: Use _.reject() to display only products that are priced below $20.
+
+var cheapProducts = _.reject( products, function( obj ){
+  return obj.price >= 20;
+} );
+
+html = '';
+
+_.each( cheapProducts, function( val, index ){
+  html += '<ul>';
+  _.each( val , function( value, prop ){
+    html += '<li>' + prop + ' - ' + value + '</li>';
+  } );
+  html += '</ul>';
+});
+
+$('#cheapProducts').append( html );
+
+
+//uniq: Use _.uniq() to ensure that their are no duplicate selling points in any products before displaying them.
+
+var sellingPoints = [];
+_.each( products, function( obj ){
+  obj.selling_points = ( _.uniq( obj.selling_points ) );
+});
+
+console.log( products[ 1 ].selling_points );
+
+
+//map: Use _.map() to grab the picture_url of all products for sale, assign each to the src property of a new <img> tag and return that DOM element. Pass the result of calling _.map() directly into a $('#container').append() expression to create a photo montage.
+
+var allPhotos = _.map( products, function( obj ){
+  return '<img src="' + obj.picture_url + '">'
+} );
+
+$('#photos' ).append( allPhotos );//append recognizes arrays
+
+console.log( allPhotos );
+
+//pluck: Use _.pluck() to quickly retrieve a list of the names of all products for sale to list them in an index
+
+console.log( _.pluck( products, 'name') );
+
+//reduce: Pass a shopping cart (array of objects) to _.reduce() and use it to add up the total price of the order.
+
+console.log( _.reduce( products, function( total, item ){
+  return total + item.price;
+}, 0 ) );
+
+
+//contains: Determine if the order _.contains() a copy of 'Twilight'. If so, display a drastic message to the user asking them to re-evaluate their life choices.
+
+_.each( products, function( product ){
+  if(_.contains( product, 'Twilight' ) )
+    console.log( 'that is not a very good choice', product );
+});
+
+//every: Use _.every() to determine if every item in the order has a price tag less than $10. If so, call the user a cheapskate!
+
+var cheap = _.every( products, function( product ){
+  return product.price < 10;
+} );
+
+console.log( cheap ? 'Wow, you sure are cheap' : 'Ok. At least you are not so cheap' );
+
+//some: Use _.some() to determine if any item in the order has a price tag of $100 or more. If so, chide the user for their profligacy!
+
+var expensive = _.some( products, function( product ){
+  return product.price > 100;
+});
+
+console.log( expensive ? 'Look at you, big expender.' : 'Go ahead and buy some more stuff.');
+
+var extended = _.extend( { name : 'Ronny', last : 'Rosabal'}, { age : 33 } );
+
+console.log( extended );
