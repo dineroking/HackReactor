@@ -132,8 +132,6 @@ html = '<h2>SECRET KEEPER</h2><p>' + secret_keeper( firstString, secondString ) 
 
 htmlAppender( '#answer', html );
 
-
-
 ////////// EXERCISE 4  -- MULTIPLIES BY
 
 /*Write a function multiplies_by that takes a number as input and returns a function that, when invoked with a second
