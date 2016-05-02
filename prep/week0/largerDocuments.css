@@ -1,0 +1,30 @@
+/**
+* Project: HackReactor.
+* By: Ronny Rosabal
+* Date: 5/1/16
+* Time: 3:40 PM
+* Content: testing the larger documents section
+*/
+
+* {
+  border: 1px dotted gray;
+}
+
+p.no-box-sizing {
+  width:  400px;
+  height: 200px;
+}
+
+p.box-sizing {
+  box-sizing: border-box;
+  width:      400px;
+  height:     200px;
+}
+
+p {
+  color: red;
+}
+
+p {
+  color: blue;/*testing which colors is used*/
+}
