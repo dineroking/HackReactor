@@ -6,6 +6,97 @@
     <title>Forms & Positioning</title>
   </head>
   <body>
+
+    <!--
+  The action attribute defines where on the server the form data should be sent
+  The method attribute specifies the HTTP method (GET or POST)
+-->
+
+    <form action="unknown" method="post">
+
+      <fieldset>
+        <legend>Personal Info</legend>
+        <label for="firstName">first name: </label><input id="firstName" type="text" name="firstName" title="enter first name" autofocus>
+        <label for="password">password: </label><input id="password" type="password" name="password" title="enter password">
+        <label for="email">email: </label><input id="email" type="email" name="email" title="enter email">
+      </fieldset>
+
+      <fieldset>
+        <legend>Gender</legend>
+        <label for="male">male: </label><input id="male" type="radio" name="gender" value="male">
+        <label for="female">female: </label><input id="female" type="radio" name="gender" value="female">
+      </fieldset>
+
+      <fieldset>
+        <legend>Hobbies</legend>
+        <label for="eating">eating: </label><input id="eating" type="checkbox" value="valueEating" name="eating" checked>
+        <label for="sleeping">sleeping: </label><input id="sleeping" type="checkbox" value="valueSleeping" name="sleeping">
+      </fieldset>
+
+      <fieldset>
+        <legend>Favorite Car</legend>
+        <select  title="select car" name="car">
+          <optgroup label="Foreign">
+            <option value="Toyota">Toyota</option>
+            <option value="BMW">BMW</option>
+            <option value="Lexus" selected>Lexus</option>
+          </optgroup>
+          <optgroup label="Domestic">
+            <option value="Ford">Ford</option>
+            <option value="Chrysler">Chrysler</option>
+            <option value="Chevrolet">Chevrolet</option>
+          </optgroup>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Comments</legend>
+        <textarea name="comments" rows="8" cols="40"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Testing Inputs</legend>
+        <input type="color">
+        <input type="date">
+        <input type="datetime">
+        <input type="datetime-local">
+        <input type="file">
+        <input type="month">
+        <input type="search">
+        <input type="tel">
+        <input type="time">
+        <input type="url">
+        <input type="week">
+        <input type="text" disabled>
+      </fieldset>
+
+    </form>
+
+    <button>Send</button>
+
+
+    <form id="userSignUp" method="post">
+
+      <fieldset id="info">
+        <legend>Signup Info</legend>
+        <label for="userFirstName">first name: </label><input id="userFirstName" type="text" name="userFirstName">
+        <label for="userLastName">last name: </label><input id="userLastName" type="text" name="userLastName">
+        <label for="userEmail">email: </label><input id="userEmail" type="email" name="userEmail">
+        <label for="userUserName">username: </label><input id="userUserName" type="text" name="userUserName">
+        <label for="userPassword">password: </label><input id="userPassword" type="password" name="userPassword">
+      </fieldset>
+
+      <fieldset id="interests">
+        <legend>Interests</legend>
+        <label for="cooking">Cooking </label><input id="cooking" type="checkbox" name="cooking">
+        <label for="reading">Reading </label><input id="reading" type="checkbox" name="reading">
+        <label for="fishing">Fishing </label><input id="fishing" type="checkbox" name="fishing">
+        <label for="piano">Piano </label><input id="piano" type="checkbox" name="piano">
+      </fieldset>
+
+      <input type="submit" name="submit" value="Sign Up!">
+    </form>
+
     <script src="../../js/jquery-2.2.0.min.js"></script>
     <script src="../../js/underscore-1.8.3.min.js"></script>
     <script src="formsNpositioning.js"></script>

@@ -5,3 +5,28 @@
 * Time: 9:16 AM
 * Content: 
 */
+
+/* FORMS */
+
+fieldset {
+  position: relative;
+  margin: 1em;
+  border: none;
+}
+
+#userSignUp {
+  box-sizing: border-box;
+  width:      400px;
+  margin:     0 auto 0 auto;
+}
+
+#info label {
+  float: left;
+  width: 100px;
+  margin-right: 1em;
+  text-align: right;
+}
+
+input[type=submit] {
+  margin: 1em 2em;
+}
